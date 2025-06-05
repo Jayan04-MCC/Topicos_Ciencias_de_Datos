@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Análisis de Sentimiento</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Análisis de Sentimiento en Redes Sociales</h1>
+            <p class="subtitle">Dashboard interactivo para visualizar la evolución del sentimiento expresado en Twitter por país y fecha</p>
+        </header>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="year-select">Año:</label>
+                <select id="year-select">
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022" selected>2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="metric-select">Métrica:</label>
+                <select id="metric-select">
+                    <option value="score">Score de Sentimiento</option>
+                    <option value="count">Cantidad de Tweets</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <button id="reset-btn">Reiniciar Vista</button>
+            </div>
+        </div>
+        
+        <div class="visualizations">
+            <div class="chart-container">
+                <h2 class="chart-title">Mapa de Calor Temporal</h2>
+                <div id="heatmap" class="chart"></div>
+                <div class="legend" id="heatmap-legend"></div>
+            </div>
+            
+            <div class="chart-container">
+                <h2 class="chart-title">Evolución Mensual por País</h2>
+                <div id="line-chart" class="chart"></div>
+                <div class="legend" id="line-legend"></div>
+            </div>
+            
+            <div class="chart-container">
+                <h2 class="chart-title">Distribución Global de Sentimiento</h2>
+                <div id="world-map" class="chart"></div>
+                <div class="legend" id="map-legend"></div>
+            </div>
+            
+            <div class="chart-container">
+                <h2 class="chart-title">Top Países por Sentimiento</h2>
+                <div id="bar-chart" class="chart"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Dashboard de Análisis de Sentimiento | Datos de redes sociales 2018-2023</p>
+            <p>El score de sentimiento varía de 0 (negativo) a 1 (positivo)</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
