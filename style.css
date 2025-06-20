@@ -1,107 +1,99 @@
- body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .controls {
-            padding: 20px;
-            background: #ecf0f1;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .viz-button {
-            padding: 10px 20px;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .viz-button:hover {
-            background: #2980b9;
-        }
-        
-        .viz-button.active {
-            background: #e74c3c;
-        }
-        
-        #toggle-golden {
-            padding: 10px 20px;
-            background: #27ae60;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        #toggle-golden:hover {
-            background: #229954;
-        }
-        
-        .visualization {
-            height: 700px;
-            position: relative;
-        }
-        
-        #chart {
-            width: 100%;
-            height: 100%;
-        }
-        
-        #map {
-            width: 100%;
-            height: 100%;
-            display: none;
-        }
-        
-        #wordcloud {
-            width: 100%;
-            height: 100%;
-            display: none;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .axis-label {
-            font-size: 14px;
-            font-weight: bold;
-            fill: #2c3e50;
-        }
-        
-        /* Estilos para tooltips */
-        #tooltip, #word-tooltip {
-            position: absolute;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            pointer-events: none;
-            z-index: 1000;
-        }
+/* styles.css */
+
+/* Reinicio ligero */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Botones de control */
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.controls .viz-button,
+.controls #toggle-golden {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.controls .viz-button.active,
+.controls #toggle-golden.active {
+  background: #4285f4;
+  color: white;
+  border-color: #3367d6;
+}
+
+/* Layout de la sección de visualizaciones */
+.visualization {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 400px;
+  grid-gap: 20px;
+  grid-template-areas:
+    "confidence label"
+    "keyword wordcloud"
+    "location location";
+}
+
+/* Áreas nombradas */
+.confidence-chart { grid-area: confidence; }
+.label-chart      { grid-area: label; }
+.keyword-chart    { grid-area: keyword; }
+.wordcloud-chart  { grid-area: wordcloud; }
+.location-chart   { grid-area: location; }
+
+/* Cada contenedor de gráfico */
+.chart-container {
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+/* Encabezado del gráfico */
+.chart-header {
+  background: #f7f7f7;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+}
+.chart-header .chart-title {
+  font-size: 1.1rem;
+}
+
+/* Contenido SVG centradito */
+.chart-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chart-content svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Resaltar el gráfico activo */
+.chart-container.highlighted {
+  border-color: #4285f4;
+  box-shadow: 0 0 8px rgba(66, 133, 244, 0.5);
+}

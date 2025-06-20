@@ -21,20 +21,57 @@
             <button class="viz-button" data-viz="keyword">Top Keywords</button>
             <button class="viz-button" data-viz="location">Mapa de Ubicaciones</button>
             <button class="viz-button" data-viz="wordcloud">Nube de Palabras</button>
-            
-            <div style="margin-left: 20px;">
-                <button id="toggle-golden">Mostrar: Golden</button>
-            </div>
+            <button id="toggle-golden">Mostrar: Golden</button>
         </div>
         
         <div class="visualization">
-            <svg id="chart"></svg>
-            <div id="map"></div>
-            <div id="wordcloud"></div>
+            <div class="chart-container confidence-chart highlighted" data-viz="confidence">
+                <div class="chart-header">
+                    <h3 class="chart-title">Distribución de Confianza</h3>
+                </div>
+                <div class="chart-content">
+                    <svg id="chart-confidence"></svg>
+                </div>
+            </div>
+            
+            <div class="chart-container label-chart" data-viz="label">
+                <div class="chart-header">
+                    <h3 class="chart-title">Distribución de Etiquetas</h3>
+                </div>
+                <div class="chart-content">
+                    <svg id="chart-label"></svg>
+                </div>
+            </div>
+            
+            <div class="chart-container keyword-chart" data-viz="keyword">
+                <div class="chart-header">
+                    <h3 class="chart-title">Top Keywords</h3>
+                </div>
+                <div class="chart-content">
+                    <svg id="chart-keyword"></svg>
+                </div>
+            </div>
+            
+            <div class="chart-container location-chart" data-viz="location">
+                <div class="chart-header">
+                    <h3 class="chart-title">Mapa de Ubicaciones</h3>
+                </div>
+                <div class="chart-content">
+                    <svg id="map-location"></svg>
+                </div>
+            </div>
+            
+            <div class="chart-container wordcloud-chart" data-viz="wordcloud">
+                <div class="chart-header">
+                    <h3 class="chart-title">Nube de Palabras</h3>
+                </div>
+                <div class="chart-content">
+                    <svg id="wordcloud-location"></svg>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Tu script JavaScript refactorizado va aquí -->
     <script src="script.js"></script>
 </body>
 </html>
